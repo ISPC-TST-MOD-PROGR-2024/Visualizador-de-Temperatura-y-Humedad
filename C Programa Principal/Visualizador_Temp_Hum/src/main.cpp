@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include "sensor.h"
 
+
 // Configuración de pines y otros parámetros
 const int DHT_PIN = 15;       // Pin del sensor DHT11
 const int DHT_TYPE = DHT11;  // Tipo de sensor
@@ -10,9 +11,9 @@ const int NUM_PIXELS = 1;    // Número de LEDs
 // Credenciales de la red WiFi y de la base de datos MySQL
 const char* ssid = "Raul";          // Cambia esto por tu SSID
 const char* password = "ni334233";  // Cambia esto por tu contraseña de WiFi
-const char* db_user = "root";    // Cambia esto por tu usuario de MySQL
-const char* db_password = "root"; // Cambia esto por tu contraseña de MySQL
-const char* db_host = "localhost";       // Cambia esto por tu host de MySQL
+const char* db_user = "Prueba_sensor";    // Cambia esto por tu usuario de MySQL
+const char* db_password = "Prueba_sensor"; // Cambia esto por tu contraseña de MySQL
+const char* db_host = "127.0.0.1";       // Cambia esto por tu host de MySQL
 const int db_port = 3306;               // Cambia esto por el puerto de MySQL si es necesario
 
 // Crear objeto de la clase Sensor_DHT11
