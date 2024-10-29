@@ -1,12 +1,15 @@
 #include <Arduino.h>
 #include "sensor_dht11.h"
 #include "ws2812.h"
+#include <WiFi.h>
 
-#define DHTPIN 4
+#define DHTPIN 15
 #define DHTTYPE DHT11
 DHT dht(DHTPIN, DHTTYPE);
-WS2812 led(13, 1);
+WS2812 led(4, 1);
 
+const char* ssid = "Raul";          // Cambia esto por tu SSID
+const char* password = "ni334233";  // Cambia esto por tu contraseña de WiFi
 void setup() {
   Serial.begin(115200);
   dht.begin();

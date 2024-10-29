@@ -1,4 +1,5 @@
 #include "sensor_dht11.h"
+#include <WiFi.h>
 
 // Función para leer la temperatura del sensor DHT11
 float leerTemperatura(DHT &dht) {

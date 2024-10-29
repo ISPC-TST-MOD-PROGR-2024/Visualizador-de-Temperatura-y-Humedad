@@ -12,8 +12,8 @@ def conectar_base_datos():
         conexion = mysql.connector.connect(
             host='localhost',
             database='sensores',
-            user='root',
-            password='123456'
+            user='Prueba_sensor',
+            password='Prueba_sensor'
         )
         if conexion.is_connected():
             print("Conexión exitosa a la base de datos")

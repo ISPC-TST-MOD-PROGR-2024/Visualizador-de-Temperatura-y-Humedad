@@ -1,4 +1,5 @@
 #include "ws2812.h"
+#include <WiFi.h>
 
 // Constructor de la clase WS2812
 WS2812::WS2812(int pin, int numPixeles) : strip(numPixeles, pin, NEO_GRB + NEO_KHZ800) {}

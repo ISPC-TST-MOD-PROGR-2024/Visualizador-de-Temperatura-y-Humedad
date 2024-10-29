@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/Users/Usuario/Desktop/Tecnicatura Superior en Telecomunicaciones 2024/Visualizador-de-Temperatura-y-Humedad/C Programa Principal/test Temperatura y Humedad",
+      "program": "c:/Users/Usuario/Desktop/Tecnicatura Superior en Telecomunicaciones 2024/Visualizador-de-Temperatura-y-Humedad/C Programa Principal/test Temperatura y Humedad/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
