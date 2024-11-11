@@ -2,51 +2,51 @@
 #include "sensor_dht11.h"
 #include "ws2812.h"
 
-// Definición de pines y tipo de sensor DHT11
+// Configuración del pin para el sensor DHT11 y el tipo de sensor
 #define DHTPIN 4
 #define DHTTYPE DHT11
-DHT dht(DHTPIN, DHTTYPE);
+DHT dht(DHTPIN, DHTTYPE);  // Inicializa el sensor DHT11
 
-// Crea un objeto para manejar el LED WS2812 en el pin 13 con 1 LED
+// Inicializa el LED WS2812 en el pin 13 con 1 LED
 WS2812 led(13, 1);
 
 void setup() {
-  Serial.begin(115200);
-  dht.begin();
-  led.begin();
+  Serial.begin(115200);  // Inicia la comunicación serie
+  dht.begin();  // Inicializa el sensor DHT11
+  led.begin();  // Inicializa el LED WS2812
 }
 
 void loop() {
-  // Leer temperatura y humedad desde el sensor DHT11
+  // Lee los valores de temperatura y humedad
   float temperatura = leerTemperatura(dht);
   float humedad = leerHumedad(dht);
 
-  // Verificar si la lectura del sensor es correcta
+  // Verifica si las lecturas son válidas
   if (isnan(temperatura) || isnan(humedad)) {
     Serial.println("Error al leer el sensor DHT11");
-    return;  // Si hay un error, sale de la función
+    return;  // Sale de la función si hay un error
   }
 
   String color;
 
-  // Lógica para cambiar el color del LED según la temperatura
+  // Cambia el color del LED según la temperatura
   if (temperatura > 30.0) {
     color = "rojo";
-    led.cambiarColor(255, 0, 0);  // Cambia el color del LED a rojo
+    led.cambiarColor(255, 0, 0);  // LED rojo si la temperatura es mayor a 30°C
   } else if (temperatura > 20.0) {
     color = "amarillo";
-    led.cambiarColor(255, 255, 0);  // Cambia el color del LED a amarillo
+    led.cambiarColor(255, 255, 0);  // LED amarillo entre 20°C y 30°C
   } else {
     color = "verde";
-    led.cambiarColor(0, 255, 0);  // Cambia el color del LED a verde
+    led.cambiarColor(0, 255, 0);  // LED verde si la temperatura es menor a 20°C
   }
 
-  // Enviar los datos de temperatura, humedad y color por el puerto serial
+  // Envía los datos al puerto serie
   Serial.print(temperatura);
   Serial.print(",");
   Serial.print(humedad);
   Serial.print(",");
   Serial.println(color);
 
-  delay(2000);  // Espera 2 segundos antes de volver a ejecutar el bucle
+  delay(2000);  // Espera 2 segundos antes de la próxima lectura
 }
